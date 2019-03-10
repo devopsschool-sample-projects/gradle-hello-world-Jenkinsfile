@@ -8,5 +8,6 @@ node('slave1') {
   }
   stage('unit-test') {
     sh "${gradleHome}/bin/gradle test"
+    junit "build/test-results/junit-platform/*.xml"
   }
 }
