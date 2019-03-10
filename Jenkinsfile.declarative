@@ -14,4 +14,5 @@ pipeline {
         sh "${gradleHome}/bin/gradle build"
       }
     }
+  }
  }
