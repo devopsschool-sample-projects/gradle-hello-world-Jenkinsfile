@@ -10,4 +10,10 @@ node('slave1') {
     sh "${gradleHome}/bin/gradle test"
     junit "build/test-results/junit-platform/*.xml"
   }
+  stage('int-test') {
+    tests = ["one" : { sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar otoMato 'Hello Otomato!'"}, 
+             "two" :{ sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar anton 'Hello Anton!'" },
+             "three" :{ sh "test-data/int-test.shbuild/libs/oto-gradle-1.0.jar microfOcuS 'Hello Microfocus!'" }]
+    parallel tests
+  }
 }
